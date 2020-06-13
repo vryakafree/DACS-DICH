@@ -27,11 +27,12 @@ namespace DACS_DEMO
 
         private void btnuser_Click(object sender, EventArgs e)
         {
-            AdminLayout otherForm = new AdminLayout();
+            userform otherForm = new userform();
             otherForm.FormClosed += new FormClosedEventHandler(otherForm_FormClosed);
             this.Hide();
             otherForm.Show();
-        //gọi thêm hàm check nút bấm để thay vì mở form đăng nhập thì mở qua form người dùng
+            //gọi thêm hàm check nút bấm để thay vì mở form đăng nhập thì mở qua form người dùng
+            
         }
 
         void otherForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -45,6 +46,24 @@ namespace DACS_DEMO
                 combotimkiem.Visible = false;
             else
                 combotimkiem.Visible = true;
+        }
+
+        /*DataTable temp;
+        DataTable bank;*/
+        private void AppLayout_Load(object sender, EventArgs e)
+        {
+            /*combotimkiem.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            combotimkiem.AutoCompleteSource = AutoCompleteSource.ListItems;
+
+            temp = DbRdRw.SqlDbRead("Select * from BankMaster", "BankMaster");
+
+            DataView dtview = new DataView(temp);
+            dtview.Sort = "BankName DESC";
+            bank = dtview.ToTable();
+
+            combotimkiem.DataSource = bank;
+            combotimkiem.ValueMember = "BankName";
+            combotimkiem.DisplayMember = "BankName";*/
         }
     }
 }

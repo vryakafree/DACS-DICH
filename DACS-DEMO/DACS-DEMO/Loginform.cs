@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using fmath;
 
 namespace DACS_DEMO
 {
     public partial class userform : Form
     {
-        private readonly Form loadingForm = new Loading();
+        private readonly Form loading = new Loading();
 
         public userform()
         {
@@ -21,61 +23,42 @@ namespace DACS_DEMO
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            UserLayout nextForm = new UserLayout();
-            this.Hide();
-            nextForm.Show();
-            /* if (!this.ValidateChildren())
-             {
-                 return;
-             }
-
-             try
-             {
-
-                 this.btnLogin.Enabled = false;
-
-
-                 this.loadingForm.Show();
-
-                 AuthService.User = await this.userService.Login(this.txtUsername.Text, this.txtPassword.Text);
-
-                 this.Hide();
-
-                 this.loadingForm.Close();
-
-                 new AppLayout().ShowDialog();
-
-                 this.Close();
-
-             }
-             catch (AuthenticationException exception)
-             {
-                 this.loadingForm.Hide();
-                 MessageBox.Show(exception.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-             }
-             finally
-             {
-                 this.btnLogin.Enabled = true;
-             }*/
+            
         }
 
-        /*kiểm tra email
-        private void TxtUsername_Validating(object sender, CancelEventArgs e)
+        private void btnthoat_Click(object sender, EventArgs e)
         {
-            string email = this.txtEmail.Text;
+            this.Close();
+        }
 
-            if (string.IsNullOrEmpty(email))
+        private void btnLogin_Click_1(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(@"Data Source=.; Initital Catalog=DACS_DEMO;Integrated Security=True");
+            SqlDataAdapter sda = new SqlDataAdapter("Select Count(*) from tb_user Where username='" + txtEmail.Text + "' and Password ='" + txtPassword.Text + "'", con);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            if (dt.Rows[0][0].ToString() == "1")
             {
-                Validation.SetErrorTextBox(this.txtEmail, this.lblUsernameError, "Địa chỉ email không được để trống");
-                e.Cancel = true;
-                return;
+                SqlDataAdapter sda1 = new SqlDataAdapter("Select Type from tb_user Where username='" + txtEmail.Text + "' and Password ='" + txtPassword.Text + "'", con);
+                DataTable dt1 = new DataTable();
+                sda.Fill(dt1);
+                if (dt1.Rows[0][0].ToString() == "admin")
+                {
+                    this.Hide();
+                    this.loading.Show();
+                    AdminLayout ad = new AdminLayout();
+                    this.loading.Close();
+                    ad.Show();
+                }
+                if (dt1.Rows[0][0].ToString() == "user")
+                {
+                    this.Hide();
+                    this.loading.Show();
+                    UserLayout us = new UserLayout();
+                    this.loading.Close();
+                    us.Show();
+                }
             }
-
-            if (!Validation.IsEmail(email))
-            {
-                Validation.SetErrorTextBox(this.txtEmail, this.lblUsernameError, "Địa chỉ email không hợp lệ");
-                e.Cancel = true;
-            }
-        }*/
+        }
     }
 }
