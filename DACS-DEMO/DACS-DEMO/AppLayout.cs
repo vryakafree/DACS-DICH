@@ -15,17 +15,18 @@ namespace DACS_DEMO
     {
         public AppLayout()
         {
-            Thread t = new Thread(new ThreadStart(StartForm));
+            Thread t = new Thread(new ThreadStart(splash));
             t.Start();
-            Thread.Sleep(4000);
+            Thread.Sleep(5600);
             InitializeComponent();
             t.Abort();
         }
 
-        public void StartForm()
+        public void splash()
         {
             Application.Run(new Page());
         }
+
 
         private void menubar_Click(object sender, EventArgs e)
         {
@@ -56,6 +57,6 @@ namespace DACS_DEMO
                 combotimkiem.Visible = false;
             else
                 combotimkiem.Visible = true;
-        }     
+        }
     }
 }
