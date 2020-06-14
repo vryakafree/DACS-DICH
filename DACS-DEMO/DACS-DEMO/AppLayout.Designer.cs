@@ -74,7 +74,7 @@
             this.menubar.Name = "menubar";
             this.menubar.Size = new System.Drawing.Size(37, 24);
             this.menubar.Text = "Danh Mục";
-            this.menubar.Click += new System.EventHandler(this.menubar_Click);
+            this.menubar.MouseEnter += new System.EventHandler(this.menubar_MouseEnter);
             // 
             // btnuser
             // 
@@ -124,6 +124,8 @@
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.Visible = false;
+            this.menuStrip1.MouseEnter += new System.EventHandler(this.menuStrip1_MouseEnter);
+            this.menuStrip1.MouseLeave += new System.EventHandler(this.menuStrip1_MouseLeave);
             // 
             // nghethuatnhanvanToolStripMenuItem
             // 
@@ -175,7 +177,7 @@
             // combotimkiem
             // 
             this.combotimkiem.FormattingEnabled = true;
-            this.combotimkiem.Location = new System.Drawing.Point(42, 111);
+            this.combotimkiem.Location = new System.Drawing.Point(42, 85);
             this.combotimkiem.Name = "combotimkiem";
             this.combotimkiem.Size = new System.Drawing.Size(121, 21);
             this.combotimkiem.TabIndex = 3;

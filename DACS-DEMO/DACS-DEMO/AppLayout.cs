@@ -20,13 +20,16 @@ namespace DACS_DEMO
             InitializeComponent();
         }
 
-        private void menubar_Click(object sender, EventArgs e)
+        private void menubar_MouseEnter(object sender, EventArgs e)
         {
-            if (menuStrip1.Visible)
-                menuStrip1.Visible = false;               
-            else
+
                 menuStrip1.Visible = true;
         }
+
+       /* private void menubar_MouseLeave(object sender, EventArgs e)
+        {
+            menuStrip1.Visible = false;
+        }*/
 
         private void btnuser_Click(object sender, EventArgs e)
         {
@@ -49,6 +52,16 @@ namespace DACS_DEMO
                 combotimkiem.Visible = false;
             else
                 combotimkiem.Visible = true;
+        }
+
+        private void menuStrip1_MouseEnter(object sender, EventArgs e)
+        {
+            menuStrip1.Visible = true;
+        }
+
+        private void menuStrip1_MouseLeave(object sender, EventArgs e)
+        {
+            menuStrip1.Visible = false;
         }
     }
 }
