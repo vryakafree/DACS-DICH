@@ -34,6 +34,7 @@
             this.btnupload = new System.Windows.Forms.ToolStripButton();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.axAcroPDF1 = new AxAcroPDFLib.AxAcroPDF();
+            this.btnhome = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axAcroPDF1)).BeginInit();
             this.SuspendLayout();
@@ -42,10 +43,11 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnmofile,
-            this.btnupload});
+            this.btnupload,
+            this.btnhome});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(800, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(791, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -66,7 +68,7 @@
             this.btnupload.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnupload.Name = "btnupload";
             this.btnupload.Size = new System.Drawing.Size(23, 22);
-            this.btnupload.Text = "Upload file lên server";
+            this.btnupload.Text = "Upload file";
             this.btnupload.Click += new System.EventHandler(this.btnupload_Click);
             // 
             // openFileDialog1
@@ -80,18 +82,27 @@
             this.axAcroPDF1.Location = new System.Drawing.Point(0, 25);
             this.axAcroPDF1.Name = "axAcroPDF1";
             this.axAcroPDF1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axAcroPDF1.OcxState")));
-            this.axAcroPDF1.Size = new System.Drawing.Size(378, 425);
+            this.axAcroPDF1.Size = new System.Drawing.Size(378, 428);
             this.axAcroPDF1.TabIndex = 1;
+            // 
+            // btnhome
+            // 
+            this.btnhome.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnhome.Image = ((System.Drawing.Image)(resources.GetObject("btnhome.Image")));
+            this.btnhome.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnhome.Name = "btnhome";
+            this.btnhome.Size = new System.Drawing.Size(23, 22);
+            this.btnhome.Text = "Trang Chủ";
             // 
             // AdminLayout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(791, 453);
             this.Controls.Add(this.axAcroPDF1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "AdminLayout";
-            this.Text = "AdminLayout";
+            this.Text = "Trang Quản Lý";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axAcroPDF1)).EndInit();
@@ -107,5 +118,6 @@
         private System.Windows.Forms.ToolStripButton btnupload;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private AxAcroPDFLib.AxAcroPDF axAcroPDF1;
+        private System.Windows.Forms.ToolStripButton btnhome;
     }
 }

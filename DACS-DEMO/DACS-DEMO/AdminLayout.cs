@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace DACS_DEMO
 {
@@ -16,6 +17,8 @@ namespace DACS_DEMO
         {
             InitializeComponent();
         }
+
+        SqlConnection con = new SqlConnection("data source=DESKTOP-EP2QMTE; database=DACS");
 
         private void btnmofile_Click(object sender, EventArgs e)
         {
@@ -46,7 +49,29 @@ namespace DACS_DEMO
 
         private void btnupload_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                string filename = System.IO.Path.GetFileName(openFileDialog1.FileName);
+                if (filename == null)
+                {
+                    MessageBox.Show("Please select a valid document.");
+                }
+                else
+                {
+                    //we already define our connection globaly. We are just calling the object of connection.
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("insert into BAIBAODADICH (NOIDUNG)values('\\Document\\" + filename + "')", con);
+                    string path = Application.StartupPath.Substring(0, (Application.StartupPath.Length - 10));
+                    System.IO.File.Copy(openFileDialog1.FileName, path + "\\Document\\" + filename);
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    MessageBox.Show("Document uploaded.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

@@ -197,7 +197,6 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AppLayout";
             this.Text = "Học Học Nữa Học Mãi";
-            this.Load += new System.EventHandler(this.AppLayout_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);

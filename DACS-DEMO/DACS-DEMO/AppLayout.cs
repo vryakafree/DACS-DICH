@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -14,7 +15,16 @@ namespace DACS_DEMO
     {
         public AppLayout()
         {
+            Thread t = new Thread(new ThreadStart(StartForm));
+            t.Start();
+            Thread.Sleep(4000);
             InitializeComponent();
+            t.Abort();
+        }
+
+        public void StartForm()
+        {
+            Application.Run(new Page());
         }
 
         private void menubar_Click(object sender, EventArgs e)
@@ -28,7 +38,7 @@ namespace DACS_DEMO
         private void btnuser_Click(object sender, EventArgs e)
         {
             userform otherForm = new userform();
-            otherForm.FormClosed += new FormClosedEventHandler(otherForm_FormClosed);
+            otherForm.FormClosed += otherForm_FormClosed;
             this.Hide();
             otherForm.Show();
             //gọi thêm hàm check nút bấm để thay vì mở form đăng nhập thì mở qua form người dùng
@@ -46,24 +56,6 @@ namespace DACS_DEMO
                 combotimkiem.Visible = false;
             else
                 combotimkiem.Visible = true;
-        }
-
-        /*DataTable temp;
-        DataTable bank;*/
-        private void AppLayout_Load(object sender, EventArgs e)
-        {
-            /*combotimkiem.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            combotimkiem.AutoCompleteSource = AutoCompleteSource.ListItems;
-
-            temp = DbRdRw.SqlDbRead("Select * from BankMaster", "BankMaster");
-
-            DataView dtview = new DataView(temp);
-            dtview.Sort = "BankName DESC";
-            bank = dtview.ToTable();
-
-            combotimkiem.DataSource = bank;
-            combotimkiem.ValueMember = "BankName";
-            combotimkiem.DisplayMember = "BankName";*/
-        }
+        }     
     }
 }
