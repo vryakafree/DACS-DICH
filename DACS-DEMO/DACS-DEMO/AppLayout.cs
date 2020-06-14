@@ -15,23 +15,15 @@ namespace DACS_DEMO
     {
         public AppLayout()
         {
-            Thread t = new Thread(new ThreadStart(splash));
-            t.Start();
-            Thread.Sleep(5600);
+            Page pge = new Page();
+            pge.ShowDialog();
             InitializeComponent();
-            t.Abort();
         }
-
-        public void splash()
-        {
-            Application.Run(new Page());
-        }
-
 
         private void menubar_Click(object sender, EventArgs e)
         {
             if (menuStrip1.Visible)
-                menuStrip1.Visible = false;
+                menuStrip1.Visible = false;               
             else
                 menuStrip1.Visible = true;
         }

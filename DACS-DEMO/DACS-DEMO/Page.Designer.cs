@@ -33,8 +33,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.Panel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.Panel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
             // label1
@@ -52,23 +53,30 @@
             resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
             // 
-            // progressBar1
-            // 
-            resources.ApplyResources(this.progressBar1, "progressBar1");
-            this.progressBar1.Name = "progressBar1";
-            // 
             // timer1
             // 
             this.timer1.Enabled = true;
             this.timer1.Interval = 32;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // Panel1
+            // 
+            resources.ApplyResources(this.Panel1, "Panel1");
+            this.Panel1.Name = "Panel1";
+            // 
+            // Panel2
+            // 
+            this.Panel2.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            resources.ApplyResources(this.Panel2, "Panel2");
+            this.Panel2.Name = "Panel2";
+            // 
             // Page
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ControlBox = false;
-            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.Panel2);
+            this.Controls.Add(this.Panel1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -79,6 +87,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.Load += new System.EventHandler(this.Page_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -89,7 +98,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.FlowLayoutPanel Panel1;
+        private System.Windows.Forms.FlowLayoutPanel Panel2;
     }
 }

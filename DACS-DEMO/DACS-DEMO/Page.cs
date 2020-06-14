@@ -17,10 +17,24 @@ namespace DACS_DEMO
             InitializeComponent();
         }
 
+
+        private void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+
+
         private void timer1_Tick(object sender, EventArgs e)
         {
-            progressBar1.Increment(1);
-            if (progressBar1.Value == 100) timer1.Stop();
+            Panel2.Width += 25;
+            if (Panel2.Width >= 850)
+            {
+                timer1.Stop();
+                this.Close();
+            }
         }
+
+
     }
 }
