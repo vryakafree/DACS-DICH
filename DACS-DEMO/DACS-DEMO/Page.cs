@@ -27,7 +27,7 @@ namespace DACS_DEMO
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            Panel2.Width += 25;
+            Panel2.Width += 15;
             if (Panel2.Width >= 850)
             {
                 timer1.Stop();

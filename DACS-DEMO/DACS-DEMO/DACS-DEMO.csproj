@@ -50,16 +50,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminLayout.cs">
+    <Compile Include="Layout\AdminLayout.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminLayout.Designer.cs">
+    <Compile Include="Layout\AdminLayout.Designer.cs">
       <DependentUpon>AdminLayout.cs</DependentUpon>
     </Compile>
-    <Compile Include="AppLayout.cs">
+    <Compile Include="Layout\AppLayout.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AppLayout.Designer.cs">
+    <Compile Include="Layout\AppLayout.Designer.cs">
       <DependentUpon>AppLayout.cs</DependentUpon>
     </Compile>
     <Compile Include="Page.cs">
@@ -76,22 +76,22 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Loginform.cs">
+    <Compile Include="Layout\LoginLayout.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Loginform.Designer.cs">
-      <DependentUpon>Loginform.cs</DependentUpon>
+    <Compile Include="Layout\LoginLayout.Designer.cs">
+      <DependentUpon>LoginLayout.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserLayout.cs">
+    <Compile Include="Layout\UserLayout.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserLayout.Designer.cs">
+    <Compile Include="Layout\UserLayout.Designer.cs">
       <DependentUpon>UserLayout.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AdminLayout.resx">
+    <EmbeddedResource Include="Layout\AdminLayout.resx">
       <DependentUpon>AdminLayout.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AppLayout.resx">
+    <EmbeddedResource Include="Layout\AppLayout.resx">
       <DependentUpon>AppLayout.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Page.resx">
@@ -110,10 +110,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Loginform.resx">
-      <DependentUpon>Loginform.cs</DependentUpon>
+    <EmbeddedResource Include="Layout\LoginLayout.resx">
+      <DependentUpon>LoginLayout.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserLayout.resx">
+    <EmbeddedResource Include="Layout\UserLayout.resx">
       <DependentUpon>UserLayout.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -166,6 +166,7 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="3rdApps\" />
     <Folder Include="DB\" />
     <Folder Include="Document\" />
   </ItemGroup>

@@ -46,5 +46,15 @@ namespace DACS_DEMO.Properties {
                 this["Email"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-EP2QMTE;Initial Catalog=DACS;Integrated Security=True")]
+        public string DACSConnectionString {
+            get {
+                return ((string)(this["DACSConnectionString"]));
+            }
+        }
     }
 }
