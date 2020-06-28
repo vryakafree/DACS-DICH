@@ -18,7 +18,7 @@ namespace DACS_DEMO
             InitializeComponent();
         }
 
-        SqlConnection con = new SqlConnection("data source=DESKTOP-EP2QMTE; database=DACS");
+        SqlConnection con = new SqlConnection("data source=DESKTOP-EP2QMTE/SQLEXPRESS; database=DACS");
 
         private void btnmofile_Click(object sender, EventArgs e)
         {
@@ -60,7 +60,7 @@ namespace DACS_DEMO
                 {
                     //we already define our connection globaly. We are just calling the object of connection.
                     con.Open();
-                    SqlCommand cmd = new SqlCommand("insert into BAIBAODADICH (NOIDUNG)values('\\Document\\" + filename + "')", con);
+                    SqlCommand cmd = new SqlCommand("insert into BAIBAODADICH (TENBAIBAO)values('\\Document\\" + filename + "')", con);
                     string path = Application.StartupPath.Substring(0, (Application.StartupPath.Length - 10));
                     System.IO.File.Copy(openFileDialog1.FileName, path + "\\Document\\" + filename);
                     cmd.ExecuteNonQuery();

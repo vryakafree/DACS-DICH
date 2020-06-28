@@ -33,7 +33,7 @@ namespace DACS_DEMO
 
         private void btnuser_Click(object sender, EventArgs e)
         {
-            LoginLayout otherForm = new LoginLayout();
+            AdminLayout otherForm = new AdminLayout();
             otherForm.FormClosed += otherForm_FormClosed;
             this.Hide();
             otherForm.Show();
@@ -61,7 +61,14 @@ namespace DACS_DEMO
 
         private void menuStrip1_MouseLeave(object sender, EventArgs e)
         {
-            menuStrip1.Visible = false;
+            if (toolStripComboBox1.Visible == true | toolStripComboBox2.Visible == true | toolStripComboBox3.Visible == true | toolStripComboBox4.Visible == true | toolStripComboBox5.Visible == true)
+            {
+                menuStrip1.Visible = true;
+            }
+            else
+            {
+                menuStrip1.Visible = false;
+            }
         }
 
         private void AppLayout_Load(object sender, EventArgs e)

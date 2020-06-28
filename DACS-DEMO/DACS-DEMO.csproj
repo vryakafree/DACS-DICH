@@ -167,7 +167,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="3rdApps\" />
-    <Folder Include="DB\" />
     <Folder Include="Document\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
